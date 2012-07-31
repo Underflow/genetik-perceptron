@@ -8,13 +8,14 @@ namespace genetikperceptron.GA.Training
 	{
 		private List<DNA> population;
 		
-		public Trainer (int population_size)
+		public Trainer (List<DNA> population)
 		{
-			this.population = new List<DNA>();
-			for(int i = 0; i < population_size; i++)
-			{
-				this.population.Add (new DNA());
-			}
+			this.population = population;
+		}
+		
+		public void Train()
+		{
+			
 		}
 	}
 }

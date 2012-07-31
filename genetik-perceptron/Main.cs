@@ -10,7 +10,13 @@ namespace genetikperceptron
 	{
 		public static void Main (string[] args)
 		{
-			GeneticTrainer<IntDNA> trainer = new GeneticTrainer<IntDNA>(new TestFitnessEvaluator(), 10, 0.01f);
+			List<DNA> population = new List<DNA>();	
+			for(int i = 0; i < 20; i++)
+			{
+				population.Add (new DNA(new int[] {1,2,1}));
+			}
+			Trainer trainer = new Trainer(population);
+			trainer.Train();
 		}
 		
 
