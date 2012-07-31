@@ -21,7 +21,7 @@ namespace genetikperceptron
 			structure.Add (Tuple.Create (new Neuron(new List<double>(new double[]{1.0,-2.0,1.0}), 1.0f), 2));
 			NeuralNetwork nn = new NeuralNetwork(2, structure);
 			Console.WriteLine ("------");
-			Console.WriteLine ("Result of network : {0} XOR {1} = {2}", x > 1, y > 1, nn.Process (new List<double>(new double[]{x,y}))[0]);
+			Console.WriteLine ("Result of network : {0} XOR {1} = {2}", x >= 1, y >= 1, nn.Process (new List<double>(new double[]{x,y}))[0]);
 		}
 	}
 }
