@@ -7,3 +7,5 @@ Description
 ===========
 
 The goal of this project is to implement a neural network which could be trained by a genetic algorithm (with a sufficient abstraction level to be usable to solve many kind of problems).
+
+This project will probably reused to make a version using backpropagation as learning algorithm.
