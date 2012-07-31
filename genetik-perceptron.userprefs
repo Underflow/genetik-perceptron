@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="genetik-perceptron/Neuron.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="genetik-perceptron/NeuralNetwork.cs">
     <Files>
       <File FileName="genetik-perceptron/Main.cs" Line="9" Column="39" />
-      <File FileName="genetik-perceptron/Neuron.cs" Line="11" Column="4" />
+      <File FileName="genetik-perceptron/Neuron.cs" Line="10" Column="3" />
       <File FileName="genetik-perceptron/Perceptron.cs" Line="9" Column="4" />
-      <File FileName="genetik-perceptron/NeuralNetwork.cs" Line="14" Column="33" />
+      <File FileName="genetik-perceptron/NeuralNetwork.cs" Line="8" Column="23" />
+      <File FileName="genetik-perceptron/NeuronLayer.cs" Line="8" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
