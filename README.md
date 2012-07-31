@@ -20,4 +20,4 @@ This project could be use to train neural networks to solve easy problems as :
 
 * Learn to play Pong, Tetris or (may be) Mario
 * Drive a vehicle and avoid obstacles
-* Train population to evolve in an environment (with food and enemies for example)
+* Train a population to evolve in an environment (with food and enemies for example)
