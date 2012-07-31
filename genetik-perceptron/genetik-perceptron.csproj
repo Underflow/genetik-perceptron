@@ -36,8 +36,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Neuron.cs" />
-    <Compile Include="NeuralNetwork.cs" />
+    <Compile Include="NN\NeuralNetwork.cs" />
+    <Compile Include="NN\Neuron.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="NN\" />
+  </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace genetikperceptron
+namespace genetikperceptron.NN
 {
 	public class NeuralNetwork
 	{
