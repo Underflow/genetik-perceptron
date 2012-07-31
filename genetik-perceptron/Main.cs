@@ -11,10 +11,8 @@ namespace genetikperceptron
 		public static void Main (string[] args)
 		{
 			List<DNA> population = new List<DNA>();	
-			for(int i = 0; i < 20; i++)
-			{
-				population.Add (new DNA(new int[] {1,2,1}));
-			}
+			DNA test = new DNA(1, new int[] {2,1});
+			NeuralNetwork nn = test.Translate ();
 			Trainer trainer = new Trainer(population);
 			trainer.Train();
 		}

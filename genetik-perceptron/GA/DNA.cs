@@ -7,27 +7,71 @@ namespace genetikperceptron.GA.Genome
 	public class DNA
 	{
 		private double[] content;
-		private int[] layer_neurons;
+		private int[] nb_neurons_layer;
+		private int nb_inputs;
+		private int nb_layers;
 		
 		
-		public DNA(int[] layer_neurons)
+		public DNA(int nb_inputs, int[] nb_neurons_layer)
 		{
-			this.layer_neurons = layer_neurons;
+			this.nb_neurons_layer = nb_neurons_layer;
+			this.nb_inputs = nb_inputs;
+			this.nb_layers = nb_neurons_layer.GetLength(0);
 			Randomize();
+		}
+		
+		public DNA(int nb_inputs, int[] nb_neurons_layer, double[] content)
+		{
+			this.nb_neurons_layer = nb_neurons_layer;
+			this.nb_inputs = nb_inputs;
+			this.nb_layers = nb_neurons_layer.GetLength(0);
+			this.content = content;
 		}
 		
 		public void Randomize()
 		{
 			List<double> weights = new List<double>();
-			//Randomize weights
+			int nb_inputs = this.nb_inputs;
+			for(int layer = 0; layer < nb_layers; layer++)
+			{
+				int next_nb_inputs = 0;
+				for(int neuron = 0; neuron < nb_neurons_layer[layer]; neuron++)
+				{
+					for(int input = 0; input < nb_inputs; input++)
+					{
+						weights.Add (0);	
+					}
+					weights.Add (1);
+					next_nb_inputs ++;
+				}
+				nb_inputs = next_nb_inputs;
+			}
 			content = weights.ToArray ();
 		}
 		
 		public NeuralNetwork Translate()
 		{
-			int nb_layers = layer_neurons.GetLength(0);
 			List<Tuple<Neuron, int>> structure = new List<Tuple<Neuron, int>>();
-			//Create structure from content[]
+			
+			int n = 0;
+			int nb_inputs = this.nb_inputs;
+			for(int layer = 0; layer < nb_layers; layer++)
+			{
+				int next_nb_inputs = 0;
+				for(int neuron = 0; neuron < nb_neurons_layer[layer]; neuron++)
+				{
+					List<double> inputs = new List<double>();
+					for(int input = 0; input < nb_inputs; input++)
+					{
+						inputs.Add (this.content[n]);
+						n++;
+					}
+					structure.Add (Tuple.Create (new Neuron(inputs, this.content[n]), layer));
+					n++;
+					next_nb_inputs++;
+				}
+				nb_inputs = next_nb_inputs;
+			}
 			return new NeuralNetwork(nb_layers,structure);
 		}
 	}

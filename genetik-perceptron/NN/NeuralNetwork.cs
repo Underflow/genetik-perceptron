@@ -14,8 +14,8 @@ namespace genetikperceptron.NN
 			
 			foreach(Tuple<Neuron, int> neuron in neurons)
 			{
-				if(neuron.Item2 > 0 && neuron.Item2 <= nb_layers)
-					layers[neuron.Item2 - 1].Add(neuron.Item1);
+				if(neuron.Item2 >= 0 && neuron.Item2 <= nb_layers)
+					layers[neuron.Item2].Add(neuron.Item1);
 				else
 					throw new Exception("This layer isn't defined !");
 			}
