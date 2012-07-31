@@ -14,24 +14,26 @@ namespace genetikperceptron
 			
 			foreach(Tuple<Neuron, int> neuron in neurons)
 			{
-				if(neuron.Item2 > 0 && neuron.Item2 < nb_layers)
-					layers[neuron.Item2].Add(neuron.Item1);
+				if(neuron.Item2 > 0 && neuron.Item2 <= nb_layers)
+					layers[neuron.Item2 - 1].Add(neuron.Item1);
 				else
 					throw new Exception("This layer isn't defined !");
 			}
 		}
 			
-		public void Process(List<double> input)
+		public List<double> Process(List<double> input)
 		{
+			List<double> next_input = new List<double>();
 			foreach(List<Neuron> layer in layers)
 			{
-				List<double> next_input = new List<double>();
+				next_input = new List<double>();
 				foreach(Neuron neuron in layer)
 				{
 					next_input.Add(neuron.Output(input));
 				}
 				input = next_input;
 			}
+			return next_input;
 		}
 	}
 }
