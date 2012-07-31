@@ -1,11 +1,21 @@
 using System;
 using System.Collections.Generic;
 using genetikperceptron.NN;
+using genetikperceptron.GA.Training;
+using genetikperceptron.GA.Genome;
 
 namespace genetikperceptron
 {
 	class MainClass
 	{
+		public static void Main (string[] args)
+		{
+			GeneticTrainer<IntDNA> trainer = new GeneticTrainer<IntDNA>(new TestFitnessEvaluator(), 10, 0.01f);
+		}
+		
+
+		/*
+		 * NEURAL NETWORK TEST
 		public static void Main (string[] args)
 		{
 			Console.WriteLine("Neural XOR - Test of neural network implementation");
@@ -24,5 +34,7 @@ namespace genetikperceptron
 			Console.WriteLine ("------");
 			Console.WriteLine ("Result of network : {0} XOR {1} = {2}", x >= 1, y >= 1, nn.Process (new List<double>(new double[]{x,y}))[0]);
 		}
+		*/
+		
 	}
 }

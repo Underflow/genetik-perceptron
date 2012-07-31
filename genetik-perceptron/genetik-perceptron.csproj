@@ -38,16 +38,12 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="NN\NeuralNetwork.cs" />
     <Compile Include="NN\Neuron.cs" />
-    <Compile Include="GA\Genome\NeuralNetworkDNA.cs" />
-    <Compile Include="GA\Genome\IDna.cs" />
-    <Compile Include="GA\Training\GeneticTrainer.cs" />
-    <Compile Include="GA\Training\IFitnessEvaluator.cs" />
+    <Compile Include="GA\DNA.cs" />
+    <Compile Include="GA\Trainer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="GA\" />
     <Folder Include="NN\" />
-    <Folder Include="GA\Genome\" />
-    <Folder Include="GA\Training\" />
   </ItemGroup>
 </Project>
