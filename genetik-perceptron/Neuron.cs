@@ -6,7 +6,12 @@ namespace genetikperceptron
 
 	public class Neuron
 	{
-		public List<double> weights = new List<double>();
+		private List<double> weights;
+		
+		public Neuron(List<double> weights)
+		{
+			this.weights = weights;	
+		}
 		
 		public double Output(List<double> inputs)
 		{

@@ -5,17 +5,33 @@ namespace genetikperceptron
 {
 	public class NeuralNetwork
 	{
-		private List<NeuronLayer> layers = new List<NeuronLayer>();
+		private List<List<Neuron>> layers = new List<List<Neuron>>();
 		
-		public NeuralNetwork ()
+		public NeuralNetwork (int nb_layers, List<Tuple<Neuron, int>> neurons)
 		{
-		
+			for(int i = 0; i < nb_layers; i++)
+				layers.Add (new List<Neuron>());
+			
+			foreach(Tuple<Neuron, int> neuron in neurons)
+			{
+				if(neuron.Item2 > 0 && neuron.Item2 < nb_layers)
+					layers[neuron.Item2].Add(neuron.Item1);
+				else
+					throw new Exception("This layer isn't defined !");
+			}
 		}
-		
-		public void AddNeuron(Neuron neuron, int layer)
+			
+		public void Process(List<double> input)
 		{
-			if(layer > layers.Count - 1)
-				throw new Exception("This layer doesn't exist");
+			foreach(List<Neuron> layer in layers)
+			{
+				List<double> next_input = new List<double>();
+				foreach(Neuron neuron in layer)
+				{
+					next_input.Add(neuron.Output(input));
+				}
+				input = next_input;
+			}
 		}
 	}
 }
