@@ -1,11 +1,12 @@
 using System;
 using genetikperceptron.NN;
+using System.Collections.Generic;
 
 namespace genetikperceptron.GA
 {
 	public interface IEvaluator
 	{
-		double FitnessFunction(NeuralNetwork neural_network);
+		void Evaluate(List<DNA> population);
 	}
 }
 

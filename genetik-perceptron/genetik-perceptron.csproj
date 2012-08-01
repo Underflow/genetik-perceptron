@@ -41,6 +41,7 @@
     <Compile Include="GA\DNA.cs" />
     <Compile Include="GA\Trainer.cs" />
     <Compile Include="GA\IEvaluator.cs" />
+    <Compile Include="Simulation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

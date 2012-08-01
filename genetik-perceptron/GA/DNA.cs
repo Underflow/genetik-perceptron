@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace genetikperceptron.GA
 {
-	public class DNA 
+	public class DNA : IComparable<DNA>
 	{
 		public double fitness { get; set; }
 		
@@ -12,6 +12,11 @@ namespace genetikperceptron.GA
 		private int[] nb_neurons_layer;
 		private int nb_inputs;
 		private int nb_layers;
+		
+		public int CompareTo(DNA other)
+		{
+			return other.fitness.CompareTo(this.fitness);	
+		}
 		
 		public DNA(int nb_inputs, int[] nb_neurons_layer)
 		{
@@ -32,6 +37,11 @@ namespace genetikperceptron.GA
 		public void Mutate(double probability)
 		{
 			
+		}
+		
+		public DNA Crossover(DNA parrent)
+		{
+			return null;
 		}
 		
 		public void Randomize()

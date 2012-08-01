@@ -6,6 +6,7 @@ namespace genetikperceptron.NN
 
 	public class Neuron
 	{
+		public double last_output {get; private set;}
 		private double treeshold;
 		private List<double> input_weights;
 		
@@ -24,7 +25,8 @@ namespace genetikperceptron.NN
 			for(int i = 0; i < inputs.Count; i++)
 				sum += inputs[i] * input_weights[i];
 			
-			return sum >= treeshold ? 1 : 0;
+			last_output = sum >= treeshold ? 1 : 0;
+			return last_output;
 		}
 	}
 }
