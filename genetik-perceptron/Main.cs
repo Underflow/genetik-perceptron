@@ -1,44 +1,31 @@
 using System;
 using System.Collections.Generic;
 using genetikperceptron.NN;
-using genetikperceptron.GA.Training;
-using genetikperceptron.GA.Genome;
+using genetikperceptron.GA;
 
 namespace genetikperceptron
 {
 	class MainClass
 	{
 		public static void Main (string[] args)
-		{
-			List<DNA> population = new List<DNA>();	
-			DNA test = new DNA(1, new int[] {2,1});
-			NeuralNetwork nn = test.Translate ();
-			Trainer trainer = new Trainer(population);
-			trainer.Train();
-		}
-		
-
-		/*
-		 * NEURAL NETWORK TEST
-		public static void Main (string[] args)
-		{
-			Console.WriteLine("Neural XOR - Test of neural network implementation");
-			Console.WriteLine("First digit");
+		{			
+			Console.WriteLine("Neural XOR - Test of neural network implementation and DNA translation");
+			Console.WriteLine ("----------------------------------------------------------------------");
+			Console.WriteLine ("DNA Content : [1,0,1,1,1,2,0,1,1,1,-2,1,1]");
+			Console.WriteLine ();
+			double[] dna_content = new double[] {1, 0, 1, 1, 1, 2, 0, 1, 1, 1, -2, 1, 1};
+			DNA dna = new DNA(2, new int[] {3,1}, dna_content);
+			NeuralNetwork nn = dna.Translate ();
+			Console.WriteLine ("");
+			Console.WriteLine("Please input the first digit:");
 			int x = 0;
 			int.TryParse(Console.ReadLine ().ToString (), out x);
-			Console.WriteLine("Second digit");
+			Console.WriteLine("Please input the second digit:");
 			int y = 0;
 			int.TryParse(Console.ReadLine().ToString (), out y);
-			List<Tuple<Neuron, int>> structure = new List<Tuple<Neuron, int>>();
-			structure.Add (Tuple.Create (new Neuron(new List<double>(new double[]{1.0,0.0}), 1.0f), 1));
-			structure.Add (Tuple.Create (new Neuron(new List<double>(new double[]{1.0,1.0}), 2.0f), 1));
-			structure.Add (Tuple.Create (new Neuron(new List<double>(new double[]{0.0,1.0}), 1.0f), 1));
-			structure.Add (Tuple.Create (new Neuron(new List<double>(new double[]{1.0,-2.0,1.0}), 1.0f), 2));
-			NeuralNetwork nn = new NeuralNetwork(2, structure);
 			Console.WriteLine ("------");
 			Console.WriteLine ("Result of network : {0} XOR {1} = {2}", x >= 1, y >= 1, nn.Process (new List<double>(new double[]{x,y}))[0]);
+
 		}
-		*/
-		
 	}
 }

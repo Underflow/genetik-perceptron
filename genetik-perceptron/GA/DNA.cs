@@ -2,15 +2,16 @@ using System;
 using genetikperceptron.NN;
 using System.Collections.Generic;
 
-namespace genetikperceptron.GA.Genome
+namespace genetikperceptron.GA
 {
-	public class DNA
+	public class DNA 
 	{
+		public double fitness { get; set; }
+		
 		private double[] content;
 		private int[] nb_neurons_layer;
 		private int nb_inputs;
 		private int nb_layers;
-		
 		
 		public DNA(int nb_inputs, int[] nb_neurons_layer)
 		{
@@ -26,6 +27,11 @@ namespace genetikperceptron.GA.Genome
 			this.nb_inputs = nb_inputs;
 			this.nb_layers = nb_neurons_layer.GetLength(0);
 			this.content = content;
+		}
+		
+		public void Mutate(double probability)
+		{
+			
 		}
 		
 		public void Randomize()
