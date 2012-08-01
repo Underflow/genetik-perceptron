@@ -12,14 +12,14 @@ What is already done
 
 * Implementation of neural networks
 * DNA translation to build neural networks from a genetic code (double array)
-
-What will be done
-=================
-
 * Neural network training with a GA
     * Mutations
     * Crossovers
     * Selection
+
+What will be done
+=================
+
 * TCP interface for fitness evaluation
 * Simulation examples
     * Pong

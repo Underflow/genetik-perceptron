@@ -12,6 +12,7 @@ namespace genetikperceptron.GA
 		private int[] nb_neurons_layer;
 		private int nb_inputs;
 		private int nb_layers;
+		private static Random r = new Random();
 		
 		public int CompareTo(DNA other)
 		{
@@ -36,12 +37,23 @@ namespace genetikperceptron.GA
 		
 		public void Mutate(double probability)
 		{
-			
+			for(int i = 0; i < content.GetLength(0); i++)
+			{
+				if(r.NextDouble() < probability)
+				{
+					content[i] = (r.NextDouble() - 0.5f) * 20;
+				}
+			}
 		}
 		
 		public DNA Crossover(DNA parrent)
 		{
-			return null;
+			double[] child_content = new double[content.GetLength(0)];
+			for(int i = 0; i < content.GetLength(0); i++)
+			{
+				child_content[i] = r.Next(2) == 0 ? this.content[i] : parrent.content[i];
+			}
+			return new DNA(nb_inputs, nb_neurons_layer, child_content);
 		}
 		
 		public void Randomize()
@@ -55,9 +67,9 @@ namespace genetikperceptron.GA
 				{
 					for(int input = 0; input < nb_inputs; input++)
 					{
-						weights.Add (0);	
+						weights.Add ((r.NextDouble() - 0.5f) * 20);	
 					}
-					weights.Add (1);
+					weights.Add ((r.NextDouble() - 0.5f) * 20);
 					next_nb_inputs ++;
 				}
 				nb_inputs = next_nb_inputs;

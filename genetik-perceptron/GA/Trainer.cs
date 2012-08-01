@@ -6,6 +6,7 @@ namespace genetikperceptron.GA
 {
 	public class Trainer
 	{
+		public DNA best { get; private set; }
 		private Random r = new Random();
 		private List<DNA> population;
 		private IEvaluator evaluator;
@@ -30,16 +31,17 @@ namespace genetikperceptron.GA
 		{
 			evaluator.Evaluate(population);
 			population.Sort ();
+			best = population[0];
 			this.GangBang();
 			foreach(DNA dna in population)
-				dna.Mutate (0.01f);
+				dna.Mutate (.10f);
 		}
 		
 		private DNA PickGoodDNA()
 		{
 			foreach(DNA dna in population)
 			{
-				if(r.Next(100) < 30)
+				if(r.Next(100) < 50)
 				{
 					return dna;	
 				}
@@ -52,7 +54,7 @@ namespace genetikperceptron.GA
 			List<DNA> new_population = new List<DNA>();
 			for(int i = 0; i < population.Count; i++)
 			{
-				new_population.Add (PickGoodDNA.Crossover(PickGoodDNA));
+				new_population.Add (PickGoodDNA().Crossover(this.PickGoodDNA()));
 			}
 			this.population = new_population;
 		}
