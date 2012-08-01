@@ -7,6 +7,7 @@ namespace genetikperceptron
 {
 	public class Simulation : IEvaluator
 	{
+		private Random r = new Random();
 		public Simulation (string path)
 		{
 		}
@@ -17,15 +18,13 @@ namespace genetikperceptron
 			{
 				dna.fitness = 0;
 				NeuralNetwork nn = dna.Translate ();
-				int n = 0;
-				for(int i = -20; i < 20 ; i++)
+				int n;
+				for(n = 0; n < 1000; n++)
 				{
-					for(int j = -20; j < 20; j++)
-					{
-						double nnresult = nn.Process(new List<double>(new double[] {i,j}))[0];
+						int i = this.r.Next (int.MinValue, int.MaxValue);
+						int j = this.r.Next (int.MinValue, int.MaxValue);
+						double nnresult = nn.Process(new List<double>(new double[] {i, j}))[0];
 						dna.fitness += (nnresult > 0) == (i > 0) ^ (j > 0) ? 1 : 0;
-						n++;
-					}
 				}
 				dna.fitness = dna.fitness / n * 100;
 			}
