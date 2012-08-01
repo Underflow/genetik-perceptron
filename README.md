@@ -21,6 +21,9 @@ What will be done
     * Crossovers
     * Selection
 * TCP interface for fitness evaluation
+* Simulation examples
+    * Pong
+    * ..?
 
 Applications
 ============
