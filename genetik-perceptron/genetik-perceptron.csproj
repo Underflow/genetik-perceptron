@@ -6,7 +6,7 @@
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E7FFBDFA-0236-482E-977F-1E8EF445B57E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>genetikperceptron</RootNamespace>
     <AssemblyName>genetik-perceptron</AssemblyName>
   </PropertyGroup>
@@ -34,14 +34,12 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="NN\NeuralNetwork.cs" />
     <Compile Include="NN\Neuron.cs" />
     <Compile Include="GA\DNA.cs" />
     <Compile Include="GA\Trainer.cs" />
     <Compile Include="GA\IEvaluator.cs" />
-    <Compile Include="Simulation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

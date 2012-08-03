@@ -1,8 +1,7 @@
 using System;
-using genetikperceptron.NN;
 using System.Collections.Generic;
 
-namespace genetikperceptron.GA
+namespace genetikperceptron
 {
 	public class DNA : IComparable<DNA>
 	{

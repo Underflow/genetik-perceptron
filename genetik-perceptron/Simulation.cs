@@ -24,7 +24,7 @@ namespace genetikperceptron
 						int i = this.r.Next (int.MinValue, int.MaxValue);
 						int j = this.r.Next (int.MinValue, int.MaxValue);
 						double nnresult = nn.Process(new List<double>(new double[] {i, j}))[0];
-						dna.fitness += (nnresult > 0) == (i > 0) ^ (j > 0) ? 1 : 0;
+						dna.fitness += (nnresult > 0) == (i < 0) ^ (j > 0) ? 1 : 0;
 				}
 				dna.fitness = dna.fitness / n * 100;
 			}

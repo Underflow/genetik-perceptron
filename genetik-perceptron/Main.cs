@@ -10,7 +10,7 @@ namespace genetikperceptron
 	{
 		public static void Main (string[] args)
 		{			
-			Trainer trainer = new Trainer(2, new int[] {3, 3, 1}, 20, new Simulation(""));
+			Trainer trainer = new Trainer(2, new int[] {3, 3, 3, 1}, 20, new Simulation(""));
 			do
 			{
 				trainer.Train ();
